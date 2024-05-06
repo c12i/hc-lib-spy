@@ -30,7 +30,7 @@ class HcLibSpy {
 	_fetchPackageDetails() {
 		const URL = `https://registry.npmjs.org/${this.package}`;
 		const request = {
-			headers: {'User-Agent': 'hc-lib-spy'}
+			headers: { 'User-Agent': 'hc-lib-spy' }
 		};
 		return new Promise((resolve, reject) => {
 			https.get(URL, request, (res) => {

@@ -11,12 +11,12 @@ const PACKAGES = [
 
 const releasedPackageToVersion = {};
 
-;(async () => {
+; (async () => {
 	for (let p of PACKAGES) {
 		const spy = new HcLibSpy(p);
 		const release = await spy.checkMostRecentRelease();
 		if (release) {
-			releasedPackageToVersion[p] = release; 
+			releasedPackageToVersion[p] = release;
 		}
 	}
 	console.log(JSON.stringify(releasedPackageToVersion));
