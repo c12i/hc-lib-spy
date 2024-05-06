@@ -32,22 +32,24 @@ jobs:
     - name: Print Output
       run: |
         echo ${RELEASES_OUTPUT}
+
     - name: Notify via Email
-      uses: hilarion5/send-mail@v1
-      env:
-        RELEASES_OUTPUT: ${{ needs.hc-lib-spy.outputs.latest-releases }}
+      uses: dawidd6/action-send-mail@v3
       with:
-        smtp-server: mail.collinsmuriuki.xyz
-        smtp-port: 465
-        smtp-secure: true
-        from-email: no-reply@collinsmuriuki.xyz
-        to-email: logs@collinsmuriuki.xyz
-        username: secrets.SMTP_USERNAME
-        password: secrets.SMTP_PASSWORD
+        server_address: mail.collinsmuriuki.xyz
+        server_port: 465
+        secure: true
+        username: ${{secrets.SMTP_USERNAME}}
+        password: ${{secrets.SMTP_PASSWORD}}
         subject: hc-lib-spy Found New Releases!
+        to: logs@collinsmuriuki.xyz
+        from: no-reply@collinsmuriuki.xyz
         body: |
-           hc-lib-spy just detected the following new releases:
-           ${RELEASES_OUTPUT}
-        html: |
-          <p>hc-lib-spy just detected the following new releases:</p>
-          <p>${RELEASES_OUTPUT}</p>
+          hc-lib-spy just detected the following new releases:
+          ---
+          ${RELEASES_OUTPUT}
+          ---
+          best regards.
+        ignore_cert: true
+        priority: normal
+        nodemailerlog: true
