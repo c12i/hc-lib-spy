@@ -11,14 +11,6 @@ const PACKAGES = [
 
 const releasedPackageToVersion = {};
 
-function formatMapping(map) {
-	let formattedString = '';
-	for (let [key, value] of Object.entries(map)) {
-			formattedString += `${key}: ${value}\n`;
-	}
-	return formattedString.trim();
-}
-
 ;(async () => {
 	for (let p of PACKAGES) {
 		const spy = new HcLibSpy(p);
@@ -27,5 +19,5 @@ function formatMapping(map) {
 			releasedPackageToVersion[p] = release; 
 		}
 	}
-	console.log(formatMapping(releasedPackageToVersion));
+	console.log(JSON.stringify(releasedPackageToVersion));
 })();
