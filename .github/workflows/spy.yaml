@@ -44,7 +44,7 @@ jobs:
         to-email: logs@collinsmuriuki.xyz
         username: secrets.SMTP_USERNAME
         password: secrets.SMTP_PASSWORD
-        subject: hc-lib-spy New Releases!
+        subject: hc-lib-spy Found New Releases!
         body: |
            hc-lib-spy just detected the following new releases:
            ${RELEASES_OUTPUT}
