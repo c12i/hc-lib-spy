@@ -14,7 +14,7 @@ const releasedPackageToVersion = {};
 ;(async () => {
 	for (let p of PACKAGES) {
 		const spy = new HcLibSpy(p);
-		const release = await spy.checkMostRecentRelease(144);
+		const release = await spy.checkMostRecentRelease();
 		if (release) {
 			releasedPackageToVersion[p] = release; 
 		}
