@@ -52,4 +52,3 @@ jobs:
           best regards.
         ignore_cert: true
         priority: normal
-        nodemailerlog: true
