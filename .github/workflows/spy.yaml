@@ -32,7 +32,6 @@ jobs:
     - name: Print Output
       run: |
         echo ${RELEASES_OUTPUT}
-
     - name: Notify via Email
       uses: dawidd6/action-send-mail@v3
       with:
@@ -47,7 +46,7 @@ jobs:
         body: |
           hc-lib-spy just detected the following new releases:
           ---
-          ${RELEASES_OUTPUT}
+          ${{needs.hc-lib-spy.outputs.latest-releases}}
           ---
           best regards.
         ignore_cert: true
