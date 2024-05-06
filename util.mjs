@@ -11,7 +11,7 @@ class HcLibSpy {
 
 	async checkMostRecentRelease(time = 6) {
 		const offsetN = offsetNHours(time);
-		const result = await this._fetchPackageDetails(144);
+		const result = await this._fetchPackageDetails();
 		if (!(result && 'time' in result)) {
 			throw new Error('Failed to check most recent release: Invalid response body');
 		}

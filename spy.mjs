@@ -22,7 +22,7 @@ function formatMapping(map) {
 ;(async () => {
 	for (let p of PACKAGES) {
 		const spy = new HcLibSpy(p);
-		const release = await spy.checkMostRecentRelease();
+		const release = await spy.checkMostRecentRelease(144);
 		if (release) {
 			releasedPackageToVersion[p] = release; 
 		}
