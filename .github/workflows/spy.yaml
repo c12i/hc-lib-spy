@@ -18,7 +18,7 @@ jobs:
       - name: Spy on new lib releases
         id: lib_spy
         run: |
-             echo "LATEST_RELEASES=$(./spy.mjs)" >> $GITHUB_OUTPUT
+          echo "LATEST_RELEASES=$(./spy.mjs)" >> $GITHUB_OUTPUT
     outputs:
       latest-releases: ${{ steps.lib_spy.outputs.LATEST_RELEASES }}
 
@@ -26,7 +26,12 @@ jobs:
     needs: hc-lib-spy
     if: ${{ needs.hc-lib-spy.outputs.latest-releases }}
     runs-on: ubuntu-latest
+    env:
+      RELEASES_OUTPUT: ${{ needs.hc-lib-spy.outputs.latest-releases }}
     steps:
+    - name: Print Output
+      run: |
+        echo ${RELEASES_OUTPUT}
     - name: Notify via Email
       uses: hilarion5/send-mail@v1
       env:
