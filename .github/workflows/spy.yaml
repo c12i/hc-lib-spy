@@ -40,7 +40,7 @@ jobs:
         password: ${{secrets.SMTP_PASSWORD}}
         subject: hc-lib-spy Found New Releases!
         to: logs@collinsmuriuki.xyz
-        from: No-Reply <no-reply@collinsmuriuki.xyz>
+        from: Hc-Lib-Spy <no-reply@collinsmuriuki.xyz>
         body: |
           hc-lib-spy just detected the following new releases:
           ---
