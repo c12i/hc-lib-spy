@@ -11,7 +11,7 @@ const PACKAGES = [
 
 const releasedPackageToVersion = {};
 
-; (async () => {
+(async () => {
 	for (let p of PACKAGES) {
 		const spy = new HcLibSpy(p);
 		const release = await spy.checkMostRecentRelease();
@@ -19,5 +19,8 @@ const releasedPackageToVersion = {};
 			releasedPackageToVersion[p] = release;
 		}
 	}
-	console.log(JSON.stringify(releasedPackageToVersion));
+	const result = JSON.stringify(releasedPackageToVersion);
+	if (result !== '{}') {
+		console.log(JSON.stringify(releasedPackageToVersion));
+	}
 })();
