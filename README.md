@@ -1,6 +1,6 @@
-# hc-lib-spy
+# hc-lib-spy 🕵️‍♂️
 
-spy on latest holochain library releases and send notification if there`s any.
+a tool that checks for latest holochain library releases and send notification if there`s any.
 
 currently spying on:
 - `@holochain/client`
