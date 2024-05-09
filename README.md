@@ -7,3 +7,4 @@ currently spying on:
 - `@holochain/tryorama`
 - `@holochain/hc-spin`
 - `@holo-host/web-sdk`
+- `@holochain-playground/cli`

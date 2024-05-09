@@ -6,7 +6,8 @@ const PACKAGES = [
 	'@holochain/client',
 	'@holochain/tryorama',
 	'@holochain/hc-spin',
-	'@holo-host/web-sdk'
+	'@holo-host/web-sdk',
+	'@holochain-playground/cli'
 ];
 
 const releasedPackageToVersion = {};
